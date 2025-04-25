@@ -46,6 +46,8 @@ exports.register = async (req, res) => {
 
 exports.login = async (req, res) => {
     try {
+        const { email, password } = req.body
+        console.log(email, password)
         res.send('Login in controller')
     } catch(err) {
         console.log(err)
