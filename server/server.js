@@ -6,7 +6,7 @@ const cors = require('cors')
 
 //middleware
 app.use(morgan('dev'))
-app.use(express.json())
+app.use(express.json({ limit: '10mb' }))
 app.use(cors())
 
 //Router อ่านไฟล์ part ทั้งหมดที่อยู่ในไฟล์ routes

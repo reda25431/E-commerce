@@ -7,7 +7,7 @@
 generator client {
   provider = "prisma-client-js"
   // output   = "../generated/prisma"
-   output   = "../node_modules/@prisma/client"
+  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -43,52 +43,58 @@ model Product {
   images      Image[]
   createdAt   DateTime         @default(now())
   updatedAt   DateTime         @updatedAt
+  category    Category?        @relation(fields: [categoryId], references: [id])
+  categoryId  Int?
 }
 
 model Order {
-  id          Int              @id @default(autoincrement())
-  products    ProductOnOrder[]
-  cartTotal   Float
-  orderStatus String           @default("Not Process")
-  orderByID   Int
-  orderBy     User             @relation(fields: [orderByID], references: [id])
-  createdAt   DateTime         @default(now())
-  updatedAt   DateTime         @updatedAt
+  id              Int              @id @default(autoincrement())
+  products        ProductOnOrder[]
+  cartTotal       Float
+  orderStatus     String           @default("Not Process")
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+  orderedBy       User             @relation(fields: [orderedById], references: [id])
+  orderedById     Int
+  stripePaymentId String
+  amount          Int
+  status          String
+  currency        String
 }
 
 model ProductOnOrder {
   id        Int     @id @default(autoincrement())
-  productID Int
-  product   Product @relation(fields: [productID], references: [id], onDelete: Cascade)
-  orderID   Int
-  order     Order   @relation(fields: [orderID], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId   Int
   count     Int
   price     Float
 }
 
 model Category {
-  id        Int      @id @default(autoincrement())
+  id        Int       @id @default(autoincrement())
   name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Cart {
-  id        Int             @id @default(autoincrement())
-  products  ProductOnCart[]
-  cartTotal Float
-  orderByID Int
-  orderBy   User            @relation(fields: [orderByID], references: [id])
-  createdAt DateTime        @default(now())
-  updatedAt DateTime        @updatedAt
+  id          Int             @id @default(autoincrement())
+  products    ProductOnCart[]
+  cartTotal   Float
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+  orderedBy   User            @relation(fields: [orderedById], references: [id])
+  orderedById Int
 }
 
 model ProductOnCart {
-  id Int @id @default(autoincrement())
-
-  cart      Cart    @relation(fields: [cartId], references: [id])
+  id        Int     @id @default(autoincrement())
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
   cartId    Int
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id])
   productId Int
   count     Int
   price     Float
@@ -102,6 +108,6 @@ model Image {
   secure_url String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-  productID  Int
-  product    Product  @relation(fields: [productID], references: [id], onDelete: Cascade)
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId  Int
 }
