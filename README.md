@@ -2,10 +2,10 @@
 $ npm run dev
 ----------------------------------------------------------------------------
 #Tools
-Postman
-Visual Studio Code
-MySQL Workbench
-MAMP
+- Postman
+- Visual Studio Code
+- MySQL Workbench
+- MAMP
 ----------------------------------------------------------------------------
 # client install
 $ npm create vite@latest
