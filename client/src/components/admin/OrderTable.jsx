@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getOrderAdmin, changeOrderStatus } from '../../api/admin'
 import useEcomStore from '../../store/Ecom-store'
 import { toast } from 'react-toastify'
+import { numberFormat } from '../../utils/number'
 
 const OrderTable = () => {
     const token = useEcomStore((state) => state.token)
@@ -35,7 +36,7 @@ const OrderTable = () => {
 
     const getStatusColor = (status) => {
         switch (status) {
-            case "Not Process": 
+            case "Not Process":
                 return 'bg-gray-200'
             case "Processing":
                 return 'bg-blue-200'
@@ -43,7 +44,7 @@ const OrderTable = () => {
                 return 'bg-green-200'
             case "Cancel":
                 return 'bg-red-200'
-            
+
         }
     }
 
@@ -85,9 +86,9 @@ const OrderTable = () => {
                                                 )
                                             }
                                         </td>
-                                        <td>{item.cartTotal}</td>
+                                        <td>{ numberFormat(item.cartTotal) }</td>
                                         <td>
-                                        <span className={`${getStatusColor(item.orderStatus)} px-2 py-1 rounded-full`}>
+                                            <span className={`${getStatusColor(item.orderStatus)} px-2 py-1 rounded-full`}>
                                                 {item.orderStatus}
                                             </span>
                                         </td>

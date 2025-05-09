@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getOrder } from '../../api/user'
 import useEcomStore from '../../store/Ecom-store'
+import { numberFormat } from '../../utils/number'
 
 const HistoryCard = () => {
     const [orders, setOrders] = useState([])
@@ -56,9 +57,9 @@ const HistoryCard = () => {
                                                 return (
                                                     <tr key={index}>
                                                         <td>{product.product.title}</td>
-                                                        <td>{product.product.price}</td>
+                                                        <td>{numberFormat(product.product.price)}</td>
                                                         <td>{product.count}</td>
-                                                        <td>{product.count * product.product.price}</td>
+                                                        <td>{numberFormat(product.count * product.product.price)}</td>
                                                     </tr>
                                                 )
                                             }
@@ -71,7 +72,7 @@ const HistoryCard = () => {
                             <div>
                                 <div className='text-right'>
                                     <p>ราคาสุทธิ</p>
-                                    <p>{item.cartTotal}</p>
+                                    <p>{numberFormat(item.cartTotal)}</p>
                                 </div>
                             </div>
                         </div>

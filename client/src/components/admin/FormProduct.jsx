@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 import Uploadfile from './Uploadfile'
 import { Link, useNavigate } from 'react-router-dom'
 import { Pencil, Trash2 } from 'lucide-react';
+import { numberFormat } from '../../utils/number'
 
 const initialState = {
     title: "",
@@ -116,7 +117,7 @@ const FormProduct = () => {
             name: <span className="text-base text-[#003366] font-bold text-center w-full">ราคา</span>,
             selector: row => row.price,
             sortable: true,
-            cell: row => <div className="text-center w-full">{row.price}</div>,
+            cell: row => <div className="text-center w-full">{numberFormat(row.price)}</div>,
         },
         {
             name: <span className="text-base text-[#003366] font-bold text-center w-full">จำนวน</span>,

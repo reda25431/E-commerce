@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { createUserCart } from '../../api/user';
 import { Trash2, Minus, Plus } from 'lucide-react';
 import { toast } from "react-toastify";
+import { numberFormat } from '../../utils/number';
 
 const ListCart = () => {
     const cart = useEcomStore((state) => state.carts)
@@ -53,7 +54,7 @@ const ListCart = () => {
                                         <div className=''>
                                             <div className='mb-2'>
                                                 <p className='font-bold'>{item.title}</p>
-                                                <p className='text-sm'>฿{item.price} x {item.count}</p>
+                                                <p className='text-sm'>฿{numberFormat(item.price)} x {item.count}</p>
                                             </div>
                                             <div className='w-32 border rounded-sm px-2 py-1 flex items-center'>
                                                 <button
@@ -76,7 +77,7 @@ const ListCart = () => {
                                     {/* right */}
                                     <div>
                                         <div className='font-bold text-blue-500 mb-7'>
-                                            ฿{item.price * item.count}
+                                            ฿{ numberFormat(item.price * item.count) }
                                         </div>
                                         <div
                                             className='text-gray-600 rounded-md cursor-pointer px-2 py-1 border flex justify-center items-center gap-2'
@@ -96,7 +97,7 @@ const ListCart = () => {
                     <p className='text-2xl font-bold'>ยอดรวม</p>
                     <div className='flex justify-between'>
                         <span>รวมสุทธิ</span>
-                        <span className='text-2xl'>{getTotalPrice()}</span>
+                        <span className='text-2xl'>{ numberFormat(getTotalPrice()) }</span>
                     </div>
                     <div className='flex flex-col gap-2'>
                         {
