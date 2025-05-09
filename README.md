@@ -1,5 +1,5 @@
 # development [client and server]
-$ npm run dev
+- $ npm run dev
 ----------------------------------------------------------------------------
 #Tools
 - Postman
@@ -25,13 +25,10 @@ $ npm run dev
 
 ----------------------------------------------------------------------------
 # server install
-$ npm init -y
-
-$ npm install express morgan cors nodemon bcryptjs jsonwebtoken
-
-$ npm install prisma
-
-$ npx prisma init
+- $ npm init -y
+- $ npm install express morgan cors nodemon bcryptjs jsonwebtoken
+- $ npm install prisma
+- $ npx prisma init
 
 $ npm install @prisma/client
 
