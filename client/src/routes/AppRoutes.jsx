@@ -25,6 +25,7 @@ import Category from '../pages/admin/Category'
 import Product from '../pages/admin/Product'
 import Manage from '../pages/admin/Manage'
 import EditProduct from '../pages/admin/EditProduct'
+import ManageOrder from '../pages/admin/ManageOrder'
 
 const router = createBrowserRouter([
     { 
@@ -57,6 +58,7 @@ const router = createBrowserRouter([
         { path: 'product', element: <Product /> },
         { path: 'product/:id', element: <EditProduct /> },
         { path: 'manage', element: <Manage /> },
+        { path: 'orders', element: <ManageOrder /> },
       ]
     },
 ]) 
