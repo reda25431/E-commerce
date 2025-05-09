@@ -29,10 +29,7 @@
 - $ npm install express morgan cors nodemon bcryptjs jsonwebtoken
 - $ npm install prisma
 - $ npx prisma init
-
-$ npm install @prisma/client
-
-$ npm i cloudinary
-
-$ npm install --save stripe
+- $ npm install @prisma/client
+- $ npm i cloudinary
+- $ npm install --save stripe
 
