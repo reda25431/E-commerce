@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import useEcomStore from '../../store/Ecom-store'
 import { createCategory, listCategory, removeCategory } from '../../api/Category'
 import { Trash2 } from 'lucide-react';
+import { dateThai_s } from '../../utils/dateFormat';
 
 const FormCategory = () => {
 
@@ -51,25 +52,27 @@ const FormCategory = () => {
                     {index + 1}
                 </div>
             ),
-            width: '100px',
+            width: '15%',
         },
         {
             name: <span className="text-base text-[#003366] font-bold text-center w-full">ชื่อหมวดหมู่สินค้า</span>,
-            selector: row => row.name,
             sortable: true,
+            cell: (row) => (
+                <div className="w-full">
+                    {row.name}
+                </div>
+            ),
+            width: '45%',
         },
         {
             name: <span className="text-base text-[#003366] font-bold text-center w-full">วันที่สร้าง</span>,
-            selector: row => new Date(row.createdAt).toLocaleDateString(),
             sortable: true,
-            cell: row => {
-                const date = new Date(row.updatedAt);
-                const formattedDate = `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1)
-                    .toString()
-                    .padStart(2, '0')}/${date.getFullYear()}`;
-                return <div className="text-center w-full">{formattedDate}</div>;
-            },
-            width: '350px',
+            cell: (row) => (
+                <div className="w-full text-center">
+                    {dateThai_s(row.createdAt)}
+                </div>
+            ),
+            width: '20%',
         },
         {
             name: <span className="text-base text-[#003366] font-bold text-center w-full">จัดการ</span>,
@@ -83,7 +86,7 @@ const FormCategory = () => {
                     </button>
                 </div>
             ),
-            width: '200px',
+            width: '20%',
         },
     ];
 

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { getOrder } from '../../api/user'
 import useEcomStore from '../../store/Ecom-store'
 import { numberFormat } from '../../utils/number'
+import { dateThai_L } from '../../utils/dateFormat'
+import { getStatusColor } from '../../utils/statusColor'
 
 const HistoryCard = () => {
     const [orders, setOrders] = useState([])
@@ -30,13 +32,15 @@ const HistoryCard = () => {
                 {
                     orders?.map((item, index) =>
                         <div className='bg-gray-100 p-4 rounded-md shadow-md' key={index}>
-                            <div className='flex justify-between'>
+                            <div className='flex justify-between mb-2'>
                                 <div>
                                     <p className='text-sm'>Order date</p>
-                                    <p className='font-bold'>{item.updatedAt}</p>
+                                    <p className='font-bold'>{dateThai_L(item.updatedAt)}</p>
                                 </div>
                                 <div>
-                                    {item.orderStatus}
+                                    <span className={`${getStatusColor(item.orderStatus)} px-2 py-1 rounded-full`}>
+                                        {item.orderStatus}
+                                    </span>
                                 </div>
                             </div>
                             <div>

@@ -1,11 +1,18 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { LayoutDashboard, UserCog, SquareChartGantt, ShoppingBasket, LogOut } from 'lucide-react';
+import { useNavigate, NavLink } from 'react-router-dom'
+import { LayoutDashboard, UserCog, SquareChartGantt, ShoppingBasket, LogOut, ReceiptText } from 'lucide-react';
 import useEcomStore from '../../store/Ecom-store';
 
 const SidebarAdmin = () => {
     const actionLogout = useEcomStore((state) => state.actionLogout)
-    
+
+    const navigate = useNavigate()
+
+    const logout = () => {
+        actionLogout()
+        navigate('/')
+    }
+
     return (
         <div className='bg-gray-800 w-64 text-gray-100 flex flex-col h-screen'>
             <div className='h-24 bg-gray-900 flex items-center justify-center text-2xl font-bold'>
@@ -66,15 +73,15 @@ const SidebarAdmin = () => {
                             : 'text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded flex items-center'
                     }
                 >
-                    <ShoppingBasket className='mr-2' />
-                    Manage Orders
+                    <ReceiptText className='mr-2' />
+                    Orders
                 </NavLink>
             </nav>
 
-            <div>
+            <div className='flex px-4 py-4'>
                 <button
-                    className='flex cursor-pointer'
-                    onClick={() => actionLogout()}
+                    className='flex cursor-pointer text-gray-300 px-4 py-2 hover:bg-gray-700 hover:text-white rounded items-center w-full'
+                    onClick={logout}
                 >
                     <LogOut className='mr-2' />
                     Logout

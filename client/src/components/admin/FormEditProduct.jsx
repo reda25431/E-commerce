@@ -106,7 +106,7 @@ const FormEditProduct = () => {
                 </select>
                 <Uploadfile form={form} setForm={setForm} />
                 <button
-                    className='bg-blue-500'
+                    className='cursor-pointer bg-[#003366] text-white p-2 rounded-md shadow-md hover:scale-105 hover:-translate-y-1 hover:duration-200'
                 >
                     แกไขสินค้า
                 </button>

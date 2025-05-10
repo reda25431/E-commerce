@@ -3,6 +3,8 @@ import { getOrderAdmin, changeOrderStatus } from '../../api/admin'
 import useEcomStore from '../../store/Ecom-store'
 import { toast } from 'react-toastify'
 import { numberFormat } from '../../utils/number'
+import { dateThai_s } from '../../utils/dateFormat'
+import { getStatusColor } from '../../utils/statusColor'
 
 const OrderTable = () => {
     const token = useEcomStore((state) => state.token)
@@ -34,20 +36,6 @@ const OrderTable = () => {
             })
     }
 
-    const getStatusColor = (status) => {
-        switch (status) {
-            case "Not Process":
-                return 'bg-gray-200'
-            case "Processing":
-                return 'bg-blue-200'
-            case "Complated":
-                return 'bg-green-200'
-            case "Cancel":
-                return 'bg-red-200'
-
-        }
-    }
-
     return (
         <div className='container mx-auto p-4 bg-white shadow-md'>
             <div>
@@ -57,6 +45,7 @@ const OrderTable = () => {
                             <th>ลำดับ</th>
                             <th>ผู้ใช้งาน</th>
                             <th>ที่อยู่จัดส่ง</th>
+                            <th>วันที่</th>
                             <th>สินค้า</th>
                             <th>รวม</th>
                             <th>สถานะ</th>
@@ -76,6 +65,9 @@ const OrderTable = () => {
                                         <td>
                                             <p>{item.orderedBy.address}</p>
                                         </td>
+                                        <td className='text-center'>
+                                            { dateThai_s(item.createdAt) }
+                                        </td>
                                         <td className='px-2 py-4'>
                                             {
                                                 item.products.map((product, index) =>
@@ -86,13 +78,13 @@ const OrderTable = () => {
                                                 )
                                             }
                                         </td>
-                                        <td>{ numberFormat(item.cartTotal) }</td>
-                                        <td>
+                                        <td className='text-center'>{ numberFormat(item.cartTotal) }</td>
+                                        <td className='text-center'>
                                             <span className={`${getStatusColor(item.orderStatus)} px-2 py-1 rounded-full`}>
                                                 {item.orderStatus}
                                             </span>
                                         </td>
-                                        <td>
+                                        <td className='text-center'>
                                             <select
                                                 onChange={(e) => handleChangeStatus(token, item.id, e.target.value)}
                                                 value={item.orderStatus}
