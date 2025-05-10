@@ -22,6 +22,7 @@
 - $ npm i rc-slider
 - $ npm i lodash
 - $ npm i numeral
+- $ npm i moment
 
 ----------------------------------------------------------------------------
 # server install
