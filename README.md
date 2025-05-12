@@ -36,6 +36,11 @@ Library
 # development [client and server]
 - $ npm run dev
 ----------------------------------------------------------------------------
+Use Prisma
+- $ npx prisma migrate dev --name name
+Update Prisma
+- $ npx prisma migrate dev
+----------------------------------------------------------------------------
 # Frontend install
 - $ npm create vite@latest
 - $ npm install
