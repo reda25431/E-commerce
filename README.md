@@ -36,8 +36,10 @@ Library
 # development [client and server]
 - $ npm run dev
 ----------------------------------------------------------------------------
+# Prisma
 Use Prisma
 - $ npx prisma migrate dev --name name
+
 Update Prisma
 - $ npx prisma migrate dev
 ----------------------------------------------------------------------------
