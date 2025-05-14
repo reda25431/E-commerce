@@ -32,24 +32,27 @@ export default function CheckoutForm() {
             redirect: "if_required",
         });
 
-        console.log("payload", payload);
         if (payload.error) {
             setMessage(payload.error.message);
             toast.error(payload.error.message);
         } else if (payload.paymentIntent.status === "succeeded") {
             // Create Order
-            saveOrder(token, payload)
-                .then((res) => {
-                    console.log(res);
-                    clearCart()
-                    toast.success("Payment Success!!!");
-                    navigate("/user/history");
-                })
-                .catch((err) => {
-                    console.log(err);
-                });
+            try {
+                saveOrder(token, payload)
+                    .then((res) => {
+                        console.log(res);
+                        clearCart()
+                        toast.success("Payment Success!!!");
+                        navigate("/user/history");
+                    })
+                    .catch((err) => {
+                        console.log(err);
+                    });
+            } catch (err) {
+                console.log(err)
+            }
+
         } else {
-            console.log("Something wrong!!!");
             toast.warning("ชำระเงินไม่สำเร็จ");
         }
 

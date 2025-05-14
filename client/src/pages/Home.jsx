@@ -1,10 +1,15 @@
 import React from 'react'
+import Homecontent from '../components/home/Homecontent'
+import BestSeller from '../components/home/BestSeller'
+import NewProduct from '../components/home/NewProduct'
 
 const Home = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Home Page
-    </h1>
+    <div>
+      <Homecontent />
+      <BestSeller />
+      <NewProduct />
+    </div>
   )
 }
 

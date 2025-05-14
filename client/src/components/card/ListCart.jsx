@@ -77,7 +77,7 @@ const ListCart = () => {
                                     {/* right */}
                                     <div>
                                         <div className='font-bold text-blue-500 mb-7'>
-                                            ฿{ numberFormat(item.price * item.count) }
+                                            ฿{numberFormat(item.price * item.count)}
                                         </div>
                                         <div
                                             className='text-gray-600 rounded-md cursor-pointer px-2 py-1 border flex justify-center items-center gap-2'
@@ -88,7 +88,7 @@ const ListCart = () => {
                                         </div>
                                     </div>
                                 </div>
-                                
+
                             </div>
                         )
                     }
@@ -97,13 +97,14 @@ const ListCart = () => {
                     <p className='text-2xl font-bold'>ยอดรวม</p>
                     <div className='flex justify-between'>
                         <span>รวมสุทธิ</span>
-                        <span className='text-2xl'>{ numberFormat(getTotalPrice()) }</span>
+                        <span className='text-2xl'>{numberFormat(getTotalPrice())}</span>
                     </div>
                     <div className='flex flex-col gap-2'>
                         {
                             user
                                 ? (<Link>
                                     <button
+                                        disabled={cart.length < 1}
                                         className='bg-green-600 w-full rounded-md text-white py-2 shadow-md cursor-pointer hover:bg-green-700'
                                         onClick={handleSaveCart}
                                     >

@@ -169,7 +169,8 @@ exports.listby = async (req, res) => {
             take: limit,
             orderBy: { [sort]: order },
             include: {
-                category: true
+                category: true,
+                images: true
             }
         })
         res.send(products)

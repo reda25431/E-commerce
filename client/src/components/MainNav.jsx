@@ -23,7 +23,7 @@ const MainNav = () => {
     }
 
     return (
-        <nav className='bg-white shadow-md sticky top-0'>
+        <nav className='bg-white shadow-md sticky top-0 z-50'>
             <div className='mx-auto px-4'>
                 <div className='flex justify-between h-16'>
                     <div className='flex items-center gap-4'>
@@ -31,8 +31,8 @@ const MainNav = () => {
                         <NavLink to={'/'}
                             className={({ isActive }) =>
                                 isActive
-                                    ? 'text-[#ff5733]'
-                                    : 'text-[#003366] hover:text-[#ff5733]'
+                                    ? 'text-[#ff5733] px-3 py-2 font-medium'
+                                    : 'text-[#003366] hover:text-[#ff5733] hover:bg-gray-200 rounded-md px-3 py-2 font-medium'
                             }
                         >
                             Home
@@ -41,8 +41,8 @@ const MainNav = () => {
                             to={'/shop'}
                             className={({ isActive }) =>
                                 isActive
-                                    ? 'text-[#ff5733]'
-                                    : 'text-[#003366] hover:text-[#ff5733]'
+                                    ? 'text-[#ff5733] px-3 py-2 font-medium'
+                                    : 'text-[#003366] hover:text-[#ff5733] hover:bg-gray-200 rounded-md px-3 py-2 font-medium'
                             }
                         >
                             Shop

@@ -73,7 +73,7 @@ const CartCard = () => {
                                     </button>
                                 </div>
                                 <div className='font-bold text-blue-500'>
-                                    ฿{ numberFormat(item.price * item.count) }
+                                    ฿{numberFormat(item.price * item.count)}
                                 </div>
                             </div>
                         </div>
@@ -90,6 +90,7 @@ const CartCard = () => {
                     user
                         ? (<Link>
                             <button
+                                disabled={cart.length < 1}
                                 className='mt-4 bg-green-600 cursor-pointer text-white w-full py-2 rounded-md shadow-md hover:bg-green-700'
                                 onClick={handleSaveCart}
                             >

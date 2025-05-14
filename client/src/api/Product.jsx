@@ -43,3 +43,5 @@ export const deleteProduct = async (token, id) => await axios.delete('http://loc
 })
 
 export const searchFilters = async (arg) => await axios.post('http://localhost:5001/api/search/filters', arg)
+
+export const listProductBy = async (sort, order, limit) => await axios.post('http://localhost:5001/api/productby', { sort, order, limit })
