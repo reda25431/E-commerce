@@ -14,7 +14,8 @@ Library
 -  lodash – ฟังก์ชันช่วยเหลือสำหรับการจัดการข้อมูล
 -  numeral – จัดรูปแบบตัวเลข
 -  moment – จัดการวันที่และเวลา
--  motion - จัดการอนิเมชั่น
+-  motion - จัดการอนิเมชั่นแสดงการ์ด
+-  swiper - จัดการอนิเมชั่น slide
 # Backend
 ใช้ Node.js และ Express.js
 Library
@@ -61,6 +62,7 @@ Update Prisma
 - $ npm i numeral
 - $ npm i moment
 - $ npm i motion
+- $ npm i swiper
 ----------------------------------------------------------------------------
 # Backend install
 - $ npm init -y
