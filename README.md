@@ -16,6 +16,10 @@ Library
 -  moment – จัดการวันที่และเวลา
 -  motion - จัดการอนิเมชั่นแสดงการ์ด
 -  swiper - จัดการอนิเมชั่น slide
+-  react-hook-form - จัดการฟอร์มใน React
+-  zod - สร้าง schema validation แบบ type-safe
+-  @hookform/resolvers - เชื่อม react-hook-form เข้ากับไลบรารี zod
+-  zxcvbn - วิเคราะห์ความปลอดภัยของรหัสผ่าน
 # Backend
 ใช้ Node.js และ Express.js
 Library
@@ -63,6 +67,10 @@ Update Prisma
 - $ npm i moment
 - $ npm i motion
 - $ npm i swiper
+- $ npm i react-hook-form
+- $ npm i zod
+- $ npm i @hookform/resolvers
+- $ npm i zxcvbn
 ----------------------------------------------------------------------------
 # Backend install
 - $ npm init -y
