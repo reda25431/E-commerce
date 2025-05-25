@@ -179,61 +179,111 @@ const FormProduct = () => {
     ];
 
     return (
-        <div className='container mx-auto p-4 bg-white shadow-md'>
-            <form onSubmit={handleSubmit}>
-                <h1>เพิ่มข้อมูลสินค้า</h1>
-                <input
-                    className='border'
-                    type='text'
-                    value={form.title}
-                    onChange={handleOnChange}
-                    placeholder='Title'
-                    name='title'
-                />
-                <input
-                    className='border'
-                    type='text'
-                    value={form.description}
-                    onChange={handleOnChange}
-                    placeholder='Description'
-                    name='description'
-                />
-                <input
-                    className='border'
-                    type='number'
-                    value={form.price}
-                    onChange={handleOnChange}
-                    placeholder='Price'
-                    name='price'
-                />
-                <input
-                    className='border'
-                    type='number'
-                    value={form.quantity}
-                    onChange={handleOnChange}
-                    placeholder='Quantity'
-                    name='quantity'
-                />
-                <select
-                    className='border'
-                    name='categoryId'
-                    onChange={handleOnChange}
-                    value={form.categoryId}
-                    required
-                >
-                    <option value="" disabled>Please Select</option>
-                    {
-                        categories.map((item, index) =>
-                            <option key={index} value={item.id}>{item.name}</option>
-                        )
-                    }
-                </select>
-                <Uploadfile form={form} setForm={setForm} />
-                <button
-                    className='cursor-pointer bg-[#003366] text-white p-2 rounded-md shadow-md hover:scale-105 hover:-translate-y-1 hover:duration-200'
-                >
-                    เพิ่มสินค้า
-                </button>
+        <div className='container mx-auto p-8 bg-white shadow-xl rounded-2xl'>
+            <div className='mb-8'>
+                <h1 className='text-3xl font-bold text-center text-[#003366] mb-2'>เพิ่มข้อมูลสินค้า</h1>
+                <div className='h-1 w-20 bg-gradient-to-r from-[#003366] to-blue-500 mx-auto rounded-full'></div>
+            </div>
+
+            <form onSubmit={handleSubmit} className='space-y-6'>
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    {/* Title Input */}
+                    <div className='space-y-2'>
+                        <label className='text-sm font-medium text-gray-700'>ชื่อสินค้า</label>
+                        <input
+                            className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300'
+                            type='text'
+                            value={form.title}
+                            onChange={handleOnChange}
+                            placeholder='กรอกชื่อสินค้า'
+                            name='title'
+                        />
+                    </div>
+
+                    {/* Price Input */}
+                    <div className='space-y-2'>
+                        <label className='text-sm font-medium text-gray-700'>ราคา (บาท)</label>
+                        <input
+                            className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300'
+                            type='number'
+                            value={form.price}
+                            onChange={handleOnChange}
+                            placeholder='0.00'
+                            name='price'
+                            min='0'
+                            step='0.01'
+                        />
+                    </div>
+                </div>
+
+                {/* Description Input */}
+                <div className='space-y-2'>
+                    <label className='text-sm font-medium text-gray-700'>รายละเอียดสินค้า</label>
+                    <textarea
+                        className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 resize-none'
+                        value={form.description}
+                        onChange={handleOnChange}
+                        placeholder='กรอกรายละเอียดสินค้า'
+                        name='description'
+                        rows='4'
+                    />
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                    {/* Quantity Input */}
+                    <div className='space-y-2'>
+                        <label className='text-sm font-medium text-gray-700'>จำนวนสินค้า</label>
+                        <input
+                            className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300'
+                            type='number'
+                            value={form.quantity}
+                            onChange={handleOnChange}
+                            placeholder='จำนวน'
+                            name='quantity'
+                            min='0'
+                        />
+                    </div>
+
+                    {/* Category Select */}
+                    <div className='space-y-2'>
+                        <label className='text-sm font-medium text-gray-700'>หมวดหมู่สินค้า</label>
+                        <select
+                            className='w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300 bg-white cursor-pointer'
+                            name='categoryId'
+                            onChange={handleOnChange}
+                            value={form.categoryId}
+                            required
+                        >
+                            <option value="" disabled>เลือกหมวดหมู่</option>
+                            {categories.map((item, index) =>
+                                <option key={index} value={item.id}>{item.name}</option>
+                            )}
+                        </select>
+                    </div>
+                </div>
+
+                {/* File Upload Component */}
+                <div className='space-y-2'>
+                    <label className='text-sm font-medium text-gray-700'>รูปภาพสินค้า</label>
+                    <div className='border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-blue-400 transition-colors duration-200'>
+                        <Uploadfile form={form} setForm={setForm} />
+                    </div>
+                </div>
+
+                {/* Submit Button */}
+                <div className='pt-4'>
+                    <button
+                        type='submit'
+                        className='w-full bg-gradient-to-r cursor-pointer from-[#003366] to-blue-600 text-white py-4 px-6 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 active:scale-[0.98]'
+                    >
+                        <span className='flex items-center justify-center gap-2'>
+                            <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 6v6m0 0v6m0-6h6m-6 0H6' />
+                            </svg>
+                            เพิ่มสินค้า
+                        </span>
+                    </button>
+                </div>
                 <hr className='my-4' />
                 {/* <table className='Maintable w-full'>
                     <thead>

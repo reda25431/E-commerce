@@ -28,7 +28,7 @@ const Homecontent = () => {
     }
 
     return (
-        <div>
+        <div className='mb-10'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

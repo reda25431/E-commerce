@@ -91,21 +91,37 @@ const FormCategory = () => {
     ];
 
     return (
-        <div className='container mx-auto p-4 bg-white shadow-md'>
-            <h1>Category Management</h1>
-            <form className='my-4' onSubmit={handleSubmit}>
-                <input
-                    onChange={(e) => setName(e.target.value)}
-                    className='border'
-                    type='text'
-                />
-                <button
-                    className='cursor-pointer bg-[#003366] text-white p-2 rounded-md shadow-md hover:scale-105 hover:-translate-y-1 hover:duration-200 mx-4'
-                >
-                    เพิ่มหมวดหมู่
-                </button>
+        <div className='container mx-auto p-8 bg-white shadow-xl rounded-2xl'>
+            <div className='mb-8'>
+                <h1 className='text-3xl font-bold text-center text-[#003366] mb-2'>Category Management</h1>
+                <div className='h-1 w-20 bg-gradient-to-r from-[#003366] to-blue-500 mx-auto rounded-full'></div>
+            </div>
+
+            <form className='space-y-6' onSubmit={handleSubmit}>
+                <div className='space-y-2'>
+                    <label className='text-sm font-medium text-gray-700'>ชื่อหมวดหมู่</label>
+                    <div className='flex flex-col sm:flex-row gap-4'>
+                        <input
+                            onChange={(e) => setName(e.target.value)}
+                            className='flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 hover:border-gray-300'
+                            type='text'
+                            placeholder="กรอกชื่อหมวดหมู่สินค้า"
+                        />
+                        <button
+                            type='submit'
+                            className='bg-gradient-to-r from-[#003366] to-blue-600 text-white py-3 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-blue-300 active:scale-[0.98] whitespace-nowrap'
+                        >
+                            <span className='flex items-center justify-center gap-2'>
+                                <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 6v6m0 0v6m0-6h6m-6 0H6' />
+                                </svg>
+                                เพิ่มหมวดหมู่
+                            </span>
+                        </button>
+                    </div>
+                </div>
             </form>
-            <hr />
+             <hr className='my-4' />
             {/* <ul className='list-none'>
 
                 {

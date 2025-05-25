@@ -257,7 +257,7 @@ exports.saveOrder = async (req, res) => {
                 stripePaymentId: id,
                 amount: amountTHB,
                 status: status,
-                currentcy: currency,
+                currency: currency,
             },
         })
 

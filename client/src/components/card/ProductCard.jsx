@@ -17,7 +17,7 @@ const ProductCard = ({ item }) => {
                 ease: [0, 0.71, 0.2, 1.01],
             }}
         >
-            <div className='border rounded-md shadow-md p-2 w-36 md:w-48'>
+            <div className='border rounded-md shadow-md p-2 w-36 mb-6 md:w-48'>
                 <div>
                     {
                         item.images && item.images.length > 0

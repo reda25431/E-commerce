@@ -12,12 +12,13 @@ exports.payment = async (req, res) => {
         const amountTHB = cart.cartTotal * 100
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: 5000,
+            amount: amountTHB,
             currency: 'thb',
             automatic_payment_methods: {
                 enabled: true,
             },
         });
+        
         res.send({
             clientSecret: paymentIntent.client_secret,
         })

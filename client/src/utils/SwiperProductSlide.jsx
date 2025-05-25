@@ -29,17 +29,29 @@ const SwiperProductSlide = ({ children }) => {
           spaceBetween: 20,
         },
         768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        960: {
           slidesPerView: 4,
           spaceBetween: 40,
         },
         1024: {
-          slidesPerView: 5,
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1146: {
+          slidesPerView: 4,
           spaceBetween: 50,
         },
-        1280: {
+        1330: {
             slidesPerView: 6,
             spaceBetween: 50,
-       },
+        },
+        1600: {
+            slidesPerView: 7,
+            spaceBetween: 40,
+        },
       }}
       className="mySwiper object-cover rounded-md"
     >
