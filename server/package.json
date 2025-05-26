@@ -125,8 +125,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "build": "npx prisma generate && next build",
-    "postinstall": "prisma generate"
+    "build": "npx prisma generate",
+    "postinstall": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
