@@ -17,14 +17,14 @@ const ProductCard = ({ item }) => {
                 ease: [0, 0.71, 0.2, 1.01],
             }}
         >
-            <div className='group relative bg-white border border-gray-100 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 p-2 w-36 mb-6 md:w-48 overflow-hidden'>
+            <div className='group relative bg-white border border-gray-100 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-500 p-2 w-36 mb-6 md:w-48 overflow-hidden'>
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/30 to-purple-50/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                 <div className='relative'>
                     {
                         item.images && item.images.length > 0
                             ? (
-                                <div className="relative overflow-hidden rounded-xl mb-3">
-                                    <img className='w-full h-32 object-cover transition-transform duration-700 group-hover:scale-110 rounded-xl' src={item.images[0].url} />
+                                <div className="relative overflow-hidden rounded-md mb-3">
+                                    <img className='w-full h-32 object-cover transition-transform duration-700 group-hover:scale-110' src={item.images[0].url} />
                                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300 rounded-xl"></div>
                                 </div>
                             )
