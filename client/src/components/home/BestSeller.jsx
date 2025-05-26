@@ -24,7 +24,16 @@ const BestSeller = () => {
 
     return (
         <div className='bg-white drop-shadow-xl mb-10 rounded shadow'>
-            <p className='text-2xl text-[#003366] ml-3 p-4'>สินค้าขายดี</p>
+            <div className="relative p-6 pb-4">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                        <div className="w-2 h-8 bg-gradient-to-b from-[#003366] to-[#94b3d2] rounded-full"></div>
+                        <h2 className='text-2xl font-bold bg-gradient-to-r text-[#003366] bg-clip-text'>
+                            สินค้าขายดี
+                        </h2>
+                    </div>
+                </div>
+            </div>
             <hr className='mb-8 text-gray-200'/>
             <div className='md:px-20'>
                 <SwiperProductSlide>
